@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.32" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>False</SharedProject>
+  <Stylesheet Apply="True">d:\program files\microsoft fxcop 1.312\Xml\FxCopReport.Xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>100</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>10</RuleExceptionsThreshold>
+  <Spelling Locale="en-us" />
+  <VersionAware>False</VersionAware>
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+ </ProjectOptions>
+ <Targets>
+  <AssemblyReferenceDirectories>
+   <Directory>H:\Registry File Editor\Registry\bin\Debug\</Directory>
+  </AssemblyReferenceDirectories>
+  <Target Name="C:\Documents and Settings\John\My Documents\Visual Studio Projects\Registry File Editor\Registry\bin\Debug\Sonneville.Registry.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.32">
+  <Namespaces>
+   <Namespace Name="Sonneville.Registry">
+    <Messages>
+     <Message Id="Sonneville" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+      <Issue Name="Namespace">
+       <Item>Sonneville</Item>
+       <Item>Sonneville.Registry</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="C:\Documents and Settings\John\My Documents\Visual Studio Projects\Registry File Editor\Registry\bin\Debug\Sonneville.Registry.dll">
+    <Modules>
+     <Module Name="sonneville.registry.dll">
+      <Namespaces>
+       <Namespace Name="Sonneville.Registry">
+        <Types>
+         <Type Name="BinaryValue">
+          <Members>
+           <Member Name="op_Explicit(Sonneville.Registry.BinaryValue):Sonneville.Registry.DwordValue">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 20:52:40Z">
+              <Issue Name="Reserved">
+               <Item>BinaryValue.op_Explicit(BinaryValue):DwordValue</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Explicit(Sonneville.Registry.BinaryValue):Sonneville.Registry.MultiStringValue">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 20:52:40Z">
+              <Issue Name="Reserved">
+               <Item>BinaryValue.op_Explicit(BinaryValue):MultiStringValue</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Explicit(Sonneville.Registry.BinaryValue):Sonneville.Registry.StringValue">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 20:52:40Z">
+              <Issue Name="Reserved">
+               <Item>BinaryValue.op_Explicit(BinaryValue):StringValue</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Value">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>BinaryValue.Value:Byte[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="ValueString">
+            <Accessors>
+             <Accessor Name="get_ValueString():System.String">
+              <Messages>
+               <Message TypeName="DoNotConcatenateStringsInsideLoops" Category="Microsoft.Performance" CheckId="CA1818" Created="2006-02-18 20:14:38Z">
+                <Issue>
+                 <Item>BinaryValue.get_ValueString():String</Item>
+                </Issue>
+                <Issue>
+                 <Item>BinaryValue.get_ValueString():String</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="DwordValue">
+          <Messages>
+           <Message Id="Dword" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+            <Issue Name="Type">
+             <Item>Dword</Item>
+             <Item>Sonneville.Registry.DwordValue</Item>
+            </Issue>
+            <Notes>
+             <User Name="John">
+              <Note Id="0" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="MultiStringValue">
+          <Messages>
+           <Message Id="Multi" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+            <Issue Name="Type">
+             <Item>Multi</Item>
+             <Item>Sonneville.Registry.MultiStringValue</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="Value">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>MultiStringValue.Value:String[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NamespaceDoc">
+          <Messages>
+           <Message TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812" Created="2006-02-18 20:14:38Z">
+            <Issue>
+             <Item>Sonneville.Registry.NamespaceDoc</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="RegistryKey">
+          <Members>
+           <Member Name=".ctor(Microsoft.Win32.RegistryKey,System.Boolean)">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-12-06 21:06:36Z">
+              <Issue>
+               <Item>'registryKey'</Item>
+               <Item>RegistryKey.RegistryKey(RegistryKey, Boolean)</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name=".ctor(Sonneville.Registry.RegistryKey,System.String,System.Boolean)">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>RegistryKey.RegistryKey(RegistryKey, String, Boolean)</Item>
+               <Item>_isHive</Item>
+               <Item>System.Boolean</Item>
+               <Item>false</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="AddKey(Sonneville.Registry.RegistryKey):System.Void">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 21:12:17Z">
+              <Issue Name="Reserved">
+               <Item>RegistryKey.AddKey(RegistryKey):Void</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="AddValue(System.String,Sonneville.Registry.RegistryValueType,System.Object):System.Void">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2006-02-18 20:14:38Z">
+              <Issue Name="Parameter">
+               <Item>data</Item>
+               <Item>System.String</Item>
+               <Item>RegistryKey.AddValue(String, RegistryValueType, Object):Void</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Move(Sonneville.Registry.RegistryKey):System.Void">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 21:06:28Z">
+              <Issue Name="Reserved">
+               <Item>RegistryKey.Move(RegistryKey):Void</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Equality(Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryKey):System.Boolean">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Created="2005-08-14 07:40:42Z">
+              <Issue>
+               <Item>'leftHandSide'</Item>
+               <Item>RegistryKey.op_Equality(RegistryKey, RegistryKey):Boolean</Item>
+              </Issue>
+              <Issue>
+               <Item>'rightHandSide'</Item>
+               <Item>RegistryKey.op_Equality(RegistryKey, RegistryKey):Boolean</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Subkeys">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>RegistryKey.Subkeys:RegistryKey[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="Values">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>RegistryKey.Values:RegistryValue[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RegistryKeyCollection">
+          <Members>
+           <Member Name="Delete(Sonneville.Registry.RegistryKey):System.Void">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 21:36:07Z">
+              <Issue Name="Reserved">
+               <Item>RegistryKeyCollection.Delete(RegistryKey):Void</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Explicit(Sonneville.Registry.RegistryKeyCollection):Sonneville.Registry.RegistryKey[]">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 21:36:07Z">
+              <Issue Name="Reserved">
+               <Item>RegistryKeyCollection.op_Explicit(RegistryKeyCollection):RegistryKey[]</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RegistryValue">
+          <Members>
+           <Member Name="BinaryData">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>RegistryValue.BinaryData:Byte[]</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Equality(Sonneville.Registry.RegistryValue,Sonneville.Registry.RegistryValue):System.Boolean">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2005-12-05 17:49:53Z">
+              <Issue>
+               <Item>'leftHandSide'</Item>
+               <Item>RegistryValue.op_Equality(RegistryValue, RegistryValue):Boolean</Item>
+              </Issue>
+              <Issue>
+               <Item>'rightHandSide'</Item>
+               <Item>RegistryValue.op_Equality(RegistryValue, RegistryValue):Boolean</Item>
+              </Issue>
+              <Notes>
+               <User Name="John">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="op_Inequality(Sonneville.Registry.RegistryValue,Sonneville.Registry.RegistryValue):System.Boolean">
+            <Messages>
+             <Message TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062" Status="Excluded" Created="2005-12-05 17:49:53Z">
+              <Issue>
+               <Item>'leftHandSide'</Item>
+               <Item>RegistryValue.op_Inequality(RegistryValue, RegistryValue):Boolean</Item>
+              </Issue>
+              <Issue>
+               <Item>'rightHandSide'</Item>
+               <Item>RegistryValue.op_Inequality(RegistryValue, RegistryValue):Boolean</Item>
+              </Issue>
+              <Notes>
+               <User Name="John">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RegistryValueCollection">
+          <Members>
+           <Member Name="CopyTo(System.Array,System.Int32):System.Void">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2006-02-18 21:36:07Z">
+              <Issue Name="Reserved">
+               <Item>RegistryValueCollection.CopyTo(Array, Int32):Void</Item>
+               <Item>System.NullReferenceException</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RegistryValueEnumerator">
+          <Members>
+           <Member Name=".ctor(Sonneville.Registry.RegistryValueCollection)">
+            <Messages>
+             <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Excluded" Created="2006-02-18 20:14:38Z">
+              <Issue>
+               <Item>RegistryValueEnumerator.RegistryValueEnumerator(RegistryValueCollection)</Item>
+               <Item>_current</Item>
+               <Item>System.Int32</Item>
+               <Item>0</Item>
+              </Issue>
+              <Notes>
+               <User Name="John">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RegistryValueType">
+          <Members>
+           <Member Name="Dword">
+            <Messages>
+             <Message Id="Dword" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+              <Issue Name="Member">
+               <Item>Dword</Item>
+               <Item>RegistryValueType.Dword</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="DwordBigEndian">
+            <Messages>
+             <Message Id="Dword" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+              <Issue Name="Member">
+               <Item>Dword</Item>
+               <Item>RegistryValueType.DwordBigEndian</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="MultiString">
+            <Messages>
+             <Message Id="Multi" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2005-08-14 07:40:42Z">
+              <Issue Name="Member">
+               <Item>Multi</Item>
+               <Item>RegistryValueType.MultiString</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="StringValue">
+          <Members>
+           <Member Name="EnvironmentVariable">
+            <Accessors>
+             <Accessor Name="get_EnvironmentVariable():System.String">
+              <Messages>
+               <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2005-12-05 08:37:05Z">
+                <Issue Name="TooGeneric">
+                 <Item>StringValue.get_EnvironmentVariable():String</Item>
+                 <Item>System.ApplicationException</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="IsExpandable">
+            <Accessors>
+             <Accessor Name="get_IsExpandable():System.Boolean">
+              <Messages>
+               <Message TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2006-02-18 20:14:38Z" FixCategory="Breaking">
+                <Issue>
+                 <Item>StringValue.get_IsExpandable():Boolean</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="John">
+    <Note Id="0" Modified="2005-12-05 17:55:31Z">dword</Note>
+    <Note Id="1" Modified="2006-02-18 20:28:53Z">already tested</Note>
+    <Note Id="2" Modified="2006-02-18 21:02:49Z">already validated</Note>
+    <Note Id="3" Modified="2006-02-18 21:12:37Z">initialized to -1</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="AvoidUninstantiatedInternalClasses" Category="Microsoft.Performance" CheckId="CA1812">
+    <Resolution Name="Default">'{0}' is an internal class that is apparently never instantiated. If so, remove the code from the assembly. If this class is intended to contain only static methods, consider adding a private constructor to prevent the compiler from generating a default constructor.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">'{0}', a parameter, is cast to type '{1}' multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotConcatenateStringsInsideLoops" Category="Microsoft.Performance" CheckId="CA1818">
+    <Resolution Name="Default">Change {0} to use StringBuilder instead of String.Concat or +=</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+    <Resolution Name="Default">{0} initializes field {1} of type {2} to {3}. Remove this initialization as it will be done automatically by the runtime.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="Reserved">{0} creates an exception of type '{1}', an exception type that is reserved by the runtime and should never be raised by managed code. If this exception instance might be thrown, use a different exception type.</Resolution>
+    <Resolution Name="TooGeneric">{0} creates an exception of type '{1}', an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of the unrecognized token '{0}' in member name '{1}'.</Resolution>
+    <Resolution Name="Namespace">Correct the spelling of the unrecognized token '{0}' in namespace '{1}'.</Resolution>
+    <Resolution Name="Type">Correct the spelling of the unrecognized token '{0}' in type name '{1}'.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMethodsAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in VB) of {0} is never used. Mark the method as static (or Shared in VB) or use 'this'/'Me' in the method body, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="ValidateArgumentsOfPublicMethods" Category="Microsoft.Design" CheckId="CA1062">
+    <Resolution Name="Default">Validate parameter {0} passed to externally visible method {1}.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

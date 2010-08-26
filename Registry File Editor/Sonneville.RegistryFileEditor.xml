@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Registry File Editor</name>
+    </assembly>
+    <members>
+        <member name="T:Sonneville.RegistryFileEditor.RegistryFileEditor">
+            <summary>
+            The entry class for the application.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.RegistryFileEditor.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Sonneville.RegistryFileEditor.MainForm">
+            <summary>
+            Summary description for MainForm.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.#ctor">
+            <summary>
+            Creates a new main window for the application
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.CreateNewTab">
+            <summary>
+            Creates a new tab with a blank, unbound registry file.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.CreateNewTab(System.Boolean)">
+            <summary>
+            Creates a new tab with a blank, unbound registry file.
+            </summary>
+            <param name="LocalReg">Specifies if this tab is a copy of the Local Registry.</param>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.CreateNewTab(System.String)">
+            <summary>
+            Creates a new tab tied to a RegistryFile and populates it with data from the file.
+            </summary>
+            <param name="path">The full path to the Windows Registry File (*.reg) linked to the tab.</param>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.BuildTree(Sonneville.Registry.RegistryKey,System.Windows.Forms.TreeNode,System.Int32)">
+            <summary>
+            Creates TreeNodes for each subkey in a RegistryKey.
+            </summary>
+            <param name="key">The RegistryKey containing the subkeys to represent with TreeNodes.</param>
+            <param name="node">The TreeNode to add the new TreeNodes to.</param>
+            <param name="levels">How many node levels deep to build to the TreeNode structure.</param>
+            recursive conditions for levels:
+            -1: stop
+             0: build subnodes for current level only - don't recurse
+            >0: build subnodes for nodes levels deep
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.treeView_BeforeExpand(System.Object,System.Windows.Forms.TreeViewCancelEventArgs)">
+            <summary>
+            Delegate for expansion of a Node in a TreeView. Should populate all child nodes before expansion.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.treeView_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            Delegate for selection of a Node in a TreeView. Updates the corresponding ListView with data from the SelectedNode's corresponding RegistryKey.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+    </members>
+</doc>

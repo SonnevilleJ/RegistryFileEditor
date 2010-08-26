@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Registry File Editor</name>
+    </assembly>
+    <members>
+        <member name="T:Sonneville.RegistryFileEditor.RegistryFileEditor">
+            <summary>
+            The entry class for the application.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.RegistryFileEditor.Main(System.String[])">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Sonneville.RegistryFileEditor.MainForm">
+            <summary>
+            Summary description for MainForm.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.#ctor">
+            <summary>
+            Creates a new main window for the application
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Sonneville.RegistryFileEditor.MainForm.AddSubNodes(Sonneville.Registry.RegistryKey,System.Windows.Forms.TreeNode)">
+            <summary>
+            Creates TreeNodes for each subkey in a RegistryKey.
+            </summary>
+            <param name="key">The RegistryKey containing the subkeys to represent with TreeNodes.</param>
+            <param name="node">The TreeNode to add the new TreeNodes to.</param>
+        </member>
+    </members>
+</doc>

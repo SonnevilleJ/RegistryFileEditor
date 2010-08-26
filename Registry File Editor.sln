@@ -1,0 +1,50 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Registry File Editor Installer", "Registry File Editor Installer\Registry File Editor Installer.vdproj", "{5E15EFD5-46CD-4F62-A82B-089E560F644E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Registry Installer", "Registry Installer\Registry Installer.vdproj", "{974949DF-AB25-440A-8809-9D8640F0421D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registry", "Registry\Registry.csproj", "{6098FB96-84CB-4014-822D-20EBE6AA69DC}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Registry File Editor", "Registry File Editor\Registry File Editor.csproj", "{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		blah = blah
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{5E15EFD5-46CD-4F62-A82B-089E560F644E}.blah.ActiveCfg = blah
+		{5E15EFD5-46CD-4F62-A82B-089E560F644E}.blah.Build.0 = blah
+		{5E15EFD5-46CD-4F62-A82B-089E560F644E}.Debug.ActiveCfg = Debug
+		{5E15EFD5-46CD-4F62-A82B-089E560F644E}.Release.ActiveCfg = Release
+		{974949DF-AB25-440A-8809-9D8640F0421D}.blah.ActiveCfg = blah
+		{974949DF-AB25-440A-8809-9D8640F0421D}.blah.Build.0 = blah
+		{974949DF-AB25-440A-8809-9D8640F0421D}.Debug.ActiveCfg = Debug
+		{974949DF-AB25-440A-8809-9D8640F0421D}.Release.ActiveCfg = Release
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.blah.ActiveCfg = blah|.NET
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.blah.Build.0 = blah|.NET
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.Debug.ActiveCfg = Debug|.NET
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.Debug.Build.0 = Debug|.NET
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.Release.ActiveCfg = Release|.NET
+		{6098FB96-84CB-4014-822D-20EBE6AA69DC}.Release.Build.0 = Release|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.blah.ActiveCfg = blah|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.blah.Build.0 = blah|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.Debug.ActiveCfg = Debug|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.Debug.Build.0 = Debug|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.Release.ActiveCfg = Release|.NET
+		{BCDBBA9D-851D-449E-B5D5-87F3A563F46E}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

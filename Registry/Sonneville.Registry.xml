@@ -1,0 +1,1294 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sonneville.Registry</name>
+    </assembly>
+    <members>
+        <member name="T:Sonneville.Registry.BinaryValue">
+            <summary>
+            An array of bytes, stored in a RegistryKey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValue">
+            <summary>
+            A Windows Registry value in a RegistryKey.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._name">
+            <summary>
+            The name of the RegistryValue.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._data">
+            <summary>
+            The data this RegistryValue stores.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._type">
+            <summary>
+            The type of this RegistryValue.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._parent">
+            <summary>
+            The RegistryKey which this RegistryValue is located in.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._markedForDeletion">
+            <summary>
+            Specifies if this RegistryValue is marked for deletion from the system registry (when saved to a RegistryFile).
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValue._hashCode">
+            <summary>
+            The HashCode of this instance.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.#ctor(Sonneville.Registry.RegistryKey,System.String,Sonneville.Registry.RegistryValueType)">
+            <summary>
+            A Registry Value in the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.Delete">
+            <summary>
+            Deletes this RegistryValue.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.op_Equality(Sonneville.Registry.RegistryValue,Sonneville.Registry.RegistryValue)">
+            <summary>
+            Determines if two RegistryValues are the same.
+            </summary>
+            <param name="leftHandSide">The RegistryValue on the left-hand side of this operator.</param>
+            <param name="rightHandSide">The RegistryValue on the right-hand side of this operator.</param>
+            <returns>True if the two RegistryValues are the same, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.op_Inequality(Sonneville.Registry.RegistryValue,Sonneville.Registry.RegistryValue)">
+            <summary>
+            Determines if two RegistryValues are not the same.
+            </summary>
+            <param name="leftHandSide">The RegistryValue on the left-hand side of this operator.</param>
+            <param name="rightHandSide">The RegistryValue on the right-hand side of this operator.</param>
+            <returns>True if the two RegistryValues are different, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.RegistryValue.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.RegistryValue.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.RegistryValue; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.Equals(Sonneville.Registry.RegistryValue,Sonneville.Registry.RegistryValue)">
+            <summary>
+            Determines whether the two Sonneville.Registry.RegistryValue instances are equal.
+            </summary>
+            <param name="r1">The first Sonneville.Registry.RegistryValue to compare.</param>
+            <param name="r2">The second Sonneville.Registry.RegistryValue to compare.</param>
+            <returns>True if the first Sonneville.Registry.RegistryValue is equal to the second Sonneville.Registry.RegistryValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValue.GetHashCode">
+            <summary>
+            Serves as a hash function, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.RegistryValue.</returns>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryValue.NameChange">
+            <summary>
+            Occurs when a RegistryValue's name is changed.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryValue.DataChange">
+            <summary>
+            Occurs when a RegistryValue's contained data is changed.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryValue.ValueDeleted">
+            <summary>
+            Occurs when a RegistryValue is deleted.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.Name">
+            <summary>
+            Gets or sets the name of the registry value in the Windows Registry.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.FullPath">
+            <summary>
+            Gets the full path and name of this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.BinaryData">
+            <summary>
+            Gets or sets the binary data of this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.Value">
+            <summary>
+            Gets or sets the data of this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.ValueString">
+            <summary>
+            Gets a string representation of the value contained.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.MarkedForDeletion">
+            <summary>
+            Specifies if this RegistryValue is marked for deletion from the Windows Registry (when saved to a RegistryFile).
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.Type">
+            <summary>
+            Gets the type of this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValue.Parent">
+            <summary>
+            Gets the parent key of this RegistryValue.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValue.ValueNameChangedEventHandler">
+            <summary>
+            Handles a name change for a RegistryValue.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValue.ValueDataChangedEventHandler">
+            <summary>
+            Handles a change in a RegistryValue's contained data.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValue.ValueDeletedEventHandler">
+            <summary>
+            Handles a deletion of this RegistryValue.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.ToString">
+            <summary>
+            Returns a string that represents the current BinaryValue.
+            </summary>
+            <returns>A string that represents the current BinaryValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.op_Explicit(Sonneville.Registry.BinaryValue)~Sonneville.Registry.StringValue">
+            <summary>
+            Explicitly casts a BinaryValue to a StringValue.
+            </summary>
+            <param name="value">The BinaryValue to cast to a StringValue.</param>
+            <returns>A StringValue with data taken from the BinaryValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.op_Explicit(Sonneville.Registry.BinaryValue)~Sonneville.Registry.DwordValue">
+            <summary>
+            Explicitly casts a BinaryValue to a DwordValue.
+            </summary>
+            <param name="value">The BinaryValue to cast to a DwordValue.</param>
+            <returns>A DwordValue with data taken from the BinaryValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.op_Explicit(Sonneville.Registry.BinaryValue)~Sonneville.Registry.MultiStringValue">
+            <summary>
+            Explicitly casts a BinaryValue to a MultiStringValue.
+            </summary>
+            <param name="value">The BinaryValue to cast to a MultiStringValue.</param>
+            <returns>A MultiStringValue with data taken from the BinaryValue</returns>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.BinaryValue.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.BinaryValue.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.BinaryValue; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.BinaryValue.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.BinaryValue.</returns>
+        </member>
+        <member name="P:Sonneville.Registry.BinaryValue.Value">
+            <summary>
+            The value stored in this RegistryValue. 
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.BinaryValue.Data">
+            <summary>
+            The array of bytes contained in this BinaryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.BinaryValue.ValueString">
+            <summary>
+            Gets a string representation of the value contained as an array of hexadecimal bytes.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.DwordValue">
+            <summary>
+            A 32-bit unsigned integer, stored in a RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.DwordValue.#ctor(Sonneville.Registry.RegistryKey,System.String,System.UInt32)">
+            <summary>
+            A DWORD Value in the Windows Registry.
+            </summary>
+            <param name="parent">The parent RegistryKey of this DWORD Value.</param>
+            <param name="name">The name of this DWORD Value.</param>
+            <param name="data">The 32-bit unsigned integer stored in this DWORD Value.</param>
+        </member>
+        <member name="M:Sonneville.Registry.DwordValue.#ctor(Sonneville.Registry.RegistryKey,System.String,System.Int32)">
+            <summary>
+            A DWORD Value in the Windows Registry.
+            </summary>
+            <param name="parent">The parent RegistryKey of this DWORD Value.</param>
+            <param name="name">The name of this DWORD Value.</param>
+            <param name="data">The 32-bit integer stored in this DWORD Value.</param>
+        </member>
+        <member name="M:Sonneville.Registry.DwordValue.ToString">
+            <summary>
+            Returns a System.String that represents the current Sonneville.Registry.DwordValue.
+            </summary>
+            <returns>A System.String that represents the current Sonneville.Registry.DwordValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.DwordValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.DwordValue.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.DwordValue.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.DwordValue; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.DwordValue.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.DwordValue.</returns>
+        </member>
+        <member name="P:Sonneville.Registry.DwordValue.UnsignedValue">
+            <summary>
+            Gets or sets the 32-bit integer contained in this DWORD Value as an unsigned integer.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.DwordValue.Value">
+            <summary>
+            The value stored in this RegistryValue. 
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.DwordValue.Data">
+            <summary>
+            Gets or sets the 32-bit integer contained in this DWORD Value.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.DwordValue.ValueString">
+            <summary>
+            Gets a string representation of the value contained as a 32-bit hexadecimal number.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.InvalidRegistryFileException">
+            <summary>
+            Specifies that a file is not a valid RegistryFile.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.InvalidRegistryFileException.#ctor">
+            <summary>
+            Initializes a new instance of the Sonneville.Registry.InvalidRegistryFileException class.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.InvalidRegistryFileException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Sonneville.Registry.InvalidRegistryFileException class with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:Sonneville.Registry.InvalidRegistryFileException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the Sonneville.Registry.InvalidRegistryFileException class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception.</param>
+        </member>
+        <member name="M:Sonneville.Registry.InvalidRegistryFileException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This constructor is called during deserialization to reconstitute the exception object transmitted over a stream.
+            </summary>
+            <param name="info">The SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Sonneville.Registry.KeyDeletedEventArgs">
+            <summary>
+            The EventArgs class for a deleted RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.KeyDeletedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the KeyDeletedEventArgs class.
+            </summary>
+            <param name="name">The name of the deleted RegistryKey.</param>
+        </member>
+        <member name="P:Sonneville.Registry.KeyDeletedEventArgs.Name">
+            <summary>
+            Gets the name of the deleted RegistryKey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.KeyMovedEventArgs">
+            <summary>
+            The EventArgs class for a moved RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.KeyMovedEventArgs.#ctor(Microsoft.Win32.RegistryHive,Microsoft.Win32.RegistryHive,Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryKey)">
+            <summary>
+            Initializes a new instance of the KeyMovedEventArgs class.
+            </summary>
+            <param name="oldHive">The previous registry hive of the moved RegistryKey.</param>
+            <param name="newHive">The new registry hive of the moved RegistryKey.</param>
+            <param name="oldKey">The previous parent key of the moved RegistryKey.</param>
+            <param name="newKey">The new parent key of the moved RegistryKey.</param>
+        </member>
+        <member name="P:Sonneville.Registry.KeyMovedEventArgs.OldHive">
+            <summary>
+            Gets the previous registry hive of the moved RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.KeyMovedEventArgs.NewHive">
+            <summary>
+            Gets the new registry hive of the moved RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.KeyMovedEventArgs.OldParent">
+            <summary>
+            Gets the previous parent key of the moved RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.KeyMovedEventArgs.NewParent">
+            <summary>
+            Gets the new parent key of the moved RegistryKey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.KeyNameChangedEventArgs">
+            <summary>
+            The EventArgs class for a change in a RegistryKey's name.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.KeyNameChangedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            The arguments for a RegistryKey.NameChanged event.
+            </summary>
+            <param name="oldName">The previous name of this RegistryKey.</param>
+            <param name="newName">The new name for this RegistryKey.</param>
+        </member>
+        <member name="P:Sonneville.Registry.KeyNameChangedEventArgs.OldName">
+            <summary>
+            Gets the previous name of this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.KeyNameChangedEventArgs.NewName">
+            <summary>
+            Gets the new name for this RegistryKey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.MultiStringValue">
+            <summary>
+            An array of strings, stored in a RegistryKey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.StringValue">
+            <summary>
+            A string, stored in a RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.#ctor(Sonneville.Registry.RegistryKey,System.String,System.String)">
+            <summary>
+            A String Value in the Windows Registry.
+            </summary>
+            <param name="parent">The parent RegistryKey of this String Value.</param>
+            <param name="name">The name of this String Value.</param>
+            <param name="data">The string stored by this String Value.</param>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.#ctor(Sonneville.Registry.RegistryKey,System.String,Sonneville.Registry.RegistryValueType)">
+            <summary>
+            A String Value in the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.#ctor(Sonneville.Registry.RegistryKey,System.String,System.String,Sonneville.Registry.RegistryValueType)">
+            <summary>
+            A String Value in the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.ToString">
+            <summary>
+            Returns a System.String that represents the current StringValue.
+            </summary>
+            <returns>A System.String that represents the current StringValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.StringValue.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.StringValue.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.StringValue; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.StringValue.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.StringValue.</returns>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.Value">
+            <summary>
+            The value stored in this RegistryValue. 
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.Data">
+            <summary>
+            Gets or sets the string contained in this String Value.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.ValueString">
+            <summary>
+            Gets a string representation of the value contained.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.IsExpandable">
+            <summary>
+            Gets a boolean value that specifies whether or not this StringValue is expandable.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.EnvironmentValue">
+            <summary>
+            Gets the value of the environment variable stored in this expandable StringValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.StringValue.EnvironmentVariable">
+            <summary>
+            Gets the environment variable stored in this expandable StringValue.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.MultiStringValue.#ctor(Sonneville.Registry.RegistryKey,System.String,System.String[])">
+            <summary>
+            A Multi-String value in the Windows Registry.
+            </summary>
+            <param name="parent">The parent RegistryKey of this Multi-String Value.</param>
+            <param name="name">The name of this Multi-String Value.</param>
+            <param name="data">An array of strings contained in this Mulit-String Value.</param>
+        </member>
+        <member name="M:Sonneville.Registry.MultiStringValue.ToString">
+            <summary>
+            Returns a System.String that represents the current MultiStringValue.
+            </summary>
+            <returns>A System.String that represents the current MultiStringValue.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.MultiStringValue.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.MultiStringValue.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.MultiStringValue.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.MultiStringValue; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.MultiStringValue.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.MultiStringValue.</returns>
+        </member>
+        <member name="P:Sonneville.Registry.MultiStringValue.Value">
+            <summary>
+            The value stored in this RegistryValue. 
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.MultiStringValue.Data">
+            <summary>
+            Gets or sets the array of strings contained in this Multi-String Value.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.MultiStringValue.ValueString">
+            <summary>
+            Gets a string representation of the value contained as an array of strings.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.NamespaceDoc">
+            <summary>
+            The Sonneville.Registry namespace provides the classes necessary to interact with the Windows Registry.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey">
+            <summary>
+            A key in the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.subkey_Deleted(System.Object,System.EventArgs)">
+            <summary>
+            Handles deletions of Keys in this RegistryKey.
+            </summary>
+            <param name="sender">The deleted RegistryKey.</param>
+            <param name="e">The KeyDeletedEventArgs instance containing the details of the name change.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.value_ValueDeleted(System.Object,System.EventArgs)">
+            <summary>
+            Handles deletions of values in this RegistryKey.
+            </summary>
+            <param name="sender">The deleted value.</param>
+            <param name="e">The ValueDeletedEventArgs instance containing the details of the deletion.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.subkey_Moved(System.Object,System.EventArgs)">
+            <summary>
+            Handles changes in parent keys for subkeys in this RegistryKey.
+            </summary>
+            <param name="sender">The moved subkey.</param>
+            <param name="e">The KeyMovedEventArgs instance containing the details of the move.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(System.String)">
+            <summary>
+            Creates a RegistryKey with the full location of the key.
+            </summary>
+            <param name="fullName">The path and name of this registry key in the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(System.String,System.Boolean)">
+            <summary>
+            Creates a RegistryKey with the full location of the key, and optionally links the key to the Windows Registry.
+            </summary>
+            <param name="fullName">The path and name of this registry key in the Windows Registry.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryHive,System.String)">
+            <summary>
+            Creates a RegistryKey with the specified Win32Hive, branch, and name.
+            </summary>
+            <param name="win32Hive">The registry Win32Hive in which this key resides.</param>
+            <param name="name">The name of this registry key.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryHive,System.String,System.Boolean)">
+            <summary>
+            Creates a RegistryKey with the specified Win32Hive, branch, and name, and optionally links this registry key to the Windows Registry.
+            </summary>
+            <param name="win32Hive">The registry Win32Hive in which this key resides.</param>
+            <param name="name">The name of this registryKey.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryKey)">
+            <summary>
+            Creates a Sonneville.Registry.RegistryKey representing a Microsoft.Win32.RegistryKey.
+            </summary>
+            <param name="registryKey">The Microsoft.Win32.RegistryKey to represent.</param>
+            <exception cref="T:System.InvalidOperationException">The specified Microsoft.Win32.RegistryKey does not exist.</exception>
+            <exception cref="T:System.IO.IOException">A general error reading the Windows Registry.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryKey,System.Boolean)">
+            <summary>
+            Creates a Sonneville.Registry.RegistryKey representing a Microsoft.Win32.RegistryKey.
+            </summary>
+            <param name="registryKey">The Microsoft.Win32.RegistryKey to represent.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryHive)">
+            <summary>
+            Creates a RegistryKey designated as a RegistryHive.
+            </summary>
+            <param name="hive">The Registry Hive to represent.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Microsoft.Win32.RegistryHive,System.Boolean)">
+            <summary>
+            Creates a RegistryKey designated as a RegistryHive.
+            </summary>
+            <param name="hive">The Registry Hive to represent.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Sonneville.Registry.RegistryKey,System.String)">
+            <summary>
+            Creates a RegistryKey as a child of the parent RegistryKey.
+            </summary>
+            <param name="parent">The parent RegistryKey of this child RegistryKey.</param>
+            <param name="name">The name of this child RegistryKey.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.#ctor(Sonneville.Registry.RegistryKey,System.String,System.Boolean)">
+            <summary>
+            Creates a RegistryKey as a child of the parent RegistryKey.
+            </summary>
+            <param name="parent">The parent RegistryKey of this child RegistryKey.</param>
+            <param name="name">The name of this child RegistryKey.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.GetHive(Microsoft.Win32.RegistryHive)">
+            <summary>
+            Gets a RegistryKey that serves as a registry hive.
+            </summary>
+            <param name="hive">The registry hive to create.</param>
+            <returns>A RegistryKey that serves as a registry hive.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.GetHive(Microsoft.Win32.RegistryHive,System.Boolean)">
+            <summary>
+            Gets a RegistryKey that serves as a registry hive, and optionally links this registry key to the Windows Registry.
+            </summary>
+            <param name="hive">The registry hive to create.</param>
+            <param name="linkedToRegistry">Specifies if this registry key is to be linked to the Windows Registry.</param>
+            <returns>A RegistryKey that serves as a registry hive.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.RemoveFromRegistry">
+            <summary>
+            Removes this RegistryKey from the Windows Registry and deletes the RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.Import">
+            <summary>
+            Imports the RegistryKey into the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.ToWin32Key">
+            <summary>
+            Converts a Sonneville.Registry.RegistryKey to a Microsoft.Win32.RegistryKey.
+            </summary>
+            <returns>An array of Microsoft.Win32.RegistryKeys.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.ToString">
+            <summary>
+            Gets a string representing the full path of this Registry Key.
+            </summary>
+            <returns>A string representing the full path of this Registry Key.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.DeleteAllSubkeys">
+            <summary>
+            Deletes all RegistryKeys contained as subkeys in this RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.DeleteAllValues">
+            <summary>
+            Deletes all RegistryValues contained in this RegistryKey.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.AddKey(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Adds a RegistryKey as a subkey to this RegistryKey.
+            </summary>
+            <param name="subkey">The RegistryKey to add as a subkey.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.AddValue(System.String,Sonneville.Registry.RegistryValueType,System.Object)">
+            <summary>
+            Adds a registry value to this RegistryKey.
+            </summary>
+            <param name="name">The name of the value to add.</param>
+            <param name="type">The RegistryValueType type of the value to add.</param>
+            <param name="data">The binary data (represented as a string) to add.</param>
+            <exception cref="T:System.NotSupportedException">The specified RegistryValueType is unsupported by this version of the Registry API.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.AddValue(System.String,System.Object)">
+            <summary>
+            Adds a registry value to this RegistryKey.
+            </summary>
+            <param name="name">The name of the value to add.</param>
+            <param name="data">The binary data (represented as a string) to add.</param>
+            <exception cref="T:System.NotSupportedException">The specified RegistryValueType is unsupported by this version of the Registry API.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.Delete">
+            <summary>
+            Deletes this RegistryKey and all its child keys and values.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.DeleteSubkey(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Removes the specified RegistryKey from this RegistryKey's list of subkeys.
+            </summary>
+            <param name="subkey">The RegistryKey to abandon.</param>
+            <exception cref="T:System.Exception">The specified subkey was not found in this RegistryKey.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.DeleteValue(System.String)">
+            <summary>
+            Removes the specified RegistryValue from this RegistryKey's list of values.
+            </summary>
+            <param name="name">The name of the RegistryValue to delete.</param>
+            <exception cref="T:System.Exception">Thrown when a RegistryValue with the specified name is not found in this RegistryKey.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.Move(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Abandons this key's current parent key and makes this RegistryKey a child key under a new parent key.
+            </summary>
+            <param name="newParent">The new parent key of this RegistryKey.</param>
+            <exception cref="T:System.Exception">The new parent of this RegistryKey is itself.</exception>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.op_Equality(Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryKey)">
+            <summary>
+            Determines if two RegistryKeys are the same.
+            </summary>
+            <param name="leftHandSide">The RegistryKey on the left-hand side of this operator.</param>
+            <param name="rightHandSide">The RegistryKey on the right-hand side of this operator.</param>
+            <returns>True if the two RegistryKeys are the same, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.op_Inequality(Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryKey)">
+            <summary>
+            Determines if two RegistryKeys are not the same.
+            </summary>
+            <param name="leftHandSide">The RegistryKey on the left-hand side of this operator.</param>
+            <param name="rightHandSide">The RegistryKey on the right-hand side of this operator.</param>
+            <returns>True if the two RegistryKeys are different, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.Equals(System.Object)">
+            <summary>
+            Determines whether the specified System.Object is equal to the current Sonneville.Registry.RegistryKey.
+            </summary>
+            <param name="obj">The System.Object to compare to the current Sonneville.Registry.RegistryKey.</param>
+            <returns>True if the specified System.Object is equal to the current Sonneville.Registry.RegistryKey; otherwise, false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            </summary>
+            <returns>A hash code for the current Sonneville.Registry.RegistryKey.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.ReadFromRegistry">
+            <summary>
+            Reads the RegistryKey and its subkeys from the Windows Registry.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKey.ReadFromRegistry(System.Int32)">
+            <summary>
+            Reads the subkeys and values from the Windows Registry.
+            </summary>
+            <param name="levels">The number of sublevels to be read from the registry.</param>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryKey.NameChanged">
+            <summary>
+            Occurs when a RegistryKey's name is changed.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryKey.SubkeyAdded">
+            <summary>
+            Occurs when a RegistryKey is added as a subkey (child) to a parent RegistryKey.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryKey.Deleted">
+            <summary>
+            Occurs when a RegistryKey is deleted.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryKey.Moved">
+            <summary>
+            Occurs when a RegistryKey is moved to a different location.
+            </summary>
+        </member>
+        <member name="E:Sonneville.Registry.RegistryKey.ValueAdded">
+            <summary>
+            Occurs when a RegistryValue is created in a RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Name">
+            <summary>
+            The name of this registry key that identifies it in the parent key.
+            </summary>
+            <exception cref="T:System.FormatException">The specified name for this RegistryKey is blank.</exception>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Win32Hive">
+            <summary>
+            Gets the Win32 registry Win32Hive this key is located in.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Win32Key">
+            <summary>
+            Gets the Win32Key copy of this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Hive">
+            <summary>
+            Gets the registry hive this key is located in as a string.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Branch">
+            <summary>
+            Gets the location of this RegistryKey in its Win32Hive.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.FullPath">
+            <summary>
+            Gets the full path and name of this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Parent">
+            <summary>
+            Gets the parent key of this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.HasBeenReadFromRegistry">
+            <summary>
+            Specifies if this RegistryKey's subkeys and values have been read from the Registry.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.MarkedForDeletion">
+            <summary>
+            Specifies if this RegistryKey is marked for deletion from the system registry (when saved to a RegistryFile).
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Subkeys">
+            <summary>
+            Gets an array of subkeys contained in this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.Values">
+            <summary>
+            Gets an array of values contained in this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.DefaultValue">
+            <summary>
+            Gets the default value of this RegistryKey.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKey.LinkedToRegistry">
+            <summary>
+            Specifies if this RegistryKey is linked to the system registry. If true, all changes to this key will be reflected in the system registry.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey.KeyNameChangedEventHandler">
+            <summary>
+            Handles a name change for a RegistryKey.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A KeyNameChangedEventArgs object that contains the event data.</param>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey.SubkeyAddedEventHandler">
+            <summary>
+            Handles a subkey addition for a RegistryKey.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A SubkeyAddedEventArgs object that contains the event data.</param>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey.KeyDeletedEventHandler">
+            <summary>
+            Handles a deletion of a subkey.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A KeyDeletedEventArgs object that contains the event data.</param>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey.SubkeyMovedEventHandler">
+            <summary>
+            Handles a change in parent for a RegistryKey.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A KeyMovedEventArgs object that contains the event data.</param>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKey.ValueAddedEventHandler">
+            <summary>
+            Handles a value addition for a RegistryKey.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A ValueAddedEventArgs object that contains the event data.</param>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryKeyCollection">
+            <summary>
+            A collection of RegistryKeys.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.#ctor(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Initializes a new instance of the RegistryKeyCollection class.
+            </summary>
+            <param name="parent">The parent key of this RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.#ctor(Sonneville.Registry.RegistryKey,System.Int32)">
+            <summary>
+            Initializes a new instance of the RegistryKeyCollection class that is empty and has the specified initial capacity.
+            </summary>
+            <param name="parent">The parent key of this RegistryKeyCollection.</param>
+            <param name="capacity">The number of elements that the new list is initially capable of storing.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.#ctor(Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryKey[])">
+            <summary>
+            Initializes a new instance of the RegistryKeyCollection class which includes the RegistryKeys in the specified array.
+            </summary>
+            <param name="parent">The parent key of this RegistryKeyCollection.</param>
+            <param name="array">An array of RegistryKeys to build a RegistryKeyCollection from.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Absorb(Sonneville.Registry.RegistryKey[])">
+            <summary>
+            Absorbs all RegistryKeys in the array into the RegistryKeyCollection.
+            </summary>
+            <param name="array">The one-dimensional array of RegistryKeys to absorb into this RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Add(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Adds a RegistryKey to the collection.
+            </summary>
+            <param name="key">The RegistryKey object to add to the end of the RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Contains(System.String)">
+            <summary>
+            Determines whether a RegistryKey is in the RegistryKeyCollection.
+            </summary>
+            <param name="fullName">The full name of the RegistryKey to locate in the RegistryKeyCollection.</param>
+            <returns>True if there exists a RegistryKey with the specified full name in the RegistryKeyCollection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Contains(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Determines whether a RegistryKey is in the RegistryKeyCollection.
+            </summary>
+            <param name="key">The RegistryKey to locate in the RegistryKeyCollection.</param>
+            <returns>True if the RegistryKey exists in the RegistryKeyCollection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Delete(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Deletes a RegistryKey from this RegistryKeyCollection.
+            </summary>
+            <param name="key">The RegistryKey to delete from this RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.IndexOf(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Gets the index of a given RegistryKey in the collection.
+            </summary>
+            <param name="key">The RegistryKey to search for.</param>
+            <returns>An integer representing the index of the found RegistryKey, otherwise -1.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.ToArray">
+            <summary>
+            Copies the RegistryKeys in this RegistryKeyCollection to a new RegistryKey array.
+            </summary>
+            <returns>An array of RegistryKeys contained in this RegistryKeyCollection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Remove(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Removes the specified RegistryKey from the RegistryKeyCollection.
+            </summary>
+            <param name="key">The RegistryKey to remove from the RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.Remove(System.String)">
+            <summary>
+            Removes a RegistryKey with the specified full name from the RegistryKeyCollection.
+            </summary>
+            <param name="fullName">The full name of the RegistryKey to remove from the RegistryKeyCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.op_Explicit(Sonneville.Registry.RegistryKeyCollection)~Sonneville.Registry.RegistryKey[]">
+            <summary>
+            Explicitly converts a RegistryKeyCollection to an array of RegistryKeys.
+            </summary>
+            <param name="collection">The RegistryKeyCollection instance to convert.</param>
+            <returns>An array of RegistryKeys contained in the specified RegistryKeyCollection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the RegistryKeys stored in this RegistryKeyCollection to a given array, starting at index.
+            </summary>
+            <param name="array">The System.Array to copy elements to.</param>
+            <param name="index">The index at which to begin copying to.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.CopyTo(Sonneville.Registry.RegistryKey[],System.Int32)">
+            <summary>
+            Copies the RegistryKeys stored in this RegistryKeyCollection to a given array, starting at index.
+            </summary>
+            <param name="array">The array of RegistryKey to copy elements to.</param>
+            <param name="index">The index at which to begin copying to.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.GetEnumerator">
+            <summary>
+            Gets an enumerator for the collection.
+            </summary>
+            <returns>A RegistryKeyEnumerator usable to move through the collection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryKeyCollection.ResizeArray(System.Int32)">
+            <summary>
+            Resizes the internal array to a given size.
+            </summary>
+            <param name="size">The size to restructure the internal array to.</param>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKeyCollection.Item(System.Int32)">
+            <summary>
+            Gets the RegistryKey stored at a given index in the collection.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKeyCollection.IsSynchronized">
+            <summary>
+            Returns if the current instance is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKeyCollection.Count">
+            <summary>
+            Gets the number of RegistryKeys stored in this RegistryKeyCollection.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryKeyCollection.SyncRoot">
+            <summary>
+            Gets an object used to synchronize access to the collection.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValueCollection">
+            <summary>
+            A collection of RegistryValues.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.#ctor(Sonneville.Registry.RegistryKey)">
+            <summary>
+            Creates an empty RegistryValueCollection.
+            </summary>
+            <param name="parent">The parent key of this RegistryValueCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.#ctor(Sonneville.Registry.RegistryKey,Sonneville.Registry.RegistryValue[])">
+            <summary>
+            Creates a RegistryValueCollection containing given values.
+            </summary>
+            <param name="parent">The parent key of this RegistryValueCollection.</param>
+            <param name="values">A list of values to place in the RegistryValueCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.#ctor(Sonneville.Registry.RegistryKey,System.Int32)">
+            <summary>
+            Creates an empty RegistryValueCollection of a given size.
+            </summary>
+            <param name="parent">The parent key of this RegistryValueCollection.</param>
+            <param name="capacity">The initial size of this RegistryValueCollection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.Add(Sonneville.Registry.RegistryValue)">
+            <summary>
+            Adds a RegistryValue to the collection.
+            </summary>
+            <param name="value">The RegistryValue to add to the collection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.Contains(System.String)">
+            <summary>
+            Specifies whether this RegistryValueCollection contains a RegistryValue of a given name.
+            </summary>
+            <param name="name">The name of the RegistryValue to search for.</param>
+            <returns>True if a RegistryValue is found in the collection with the given name, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.Contains(Sonneville.Registry.RegistryValue)">
+            <summary>
+            Specifies whether this RegistryValueCollection contains a given RegistryValue.
+            </summary>
+            <param name="value">The RegistryValue to search for.</param>
+            <returns>True if the given RegistryValue is found in the collection, otherwise false.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.IndexOf(System.String)">
+            <summary>
+            Gets the index of a RegistryValue in the collection with a given name.
+            </summary>
+            <param name="name">The name of the RegistryValue to search for.</param>
+            <returns>An integer representing the index of the found RegistryValue, otherwise -1.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.IndexOf(Sonneville.Registry.RegistryValue)">
+            <summary>
+            Gets the index of a given RegistryValue in the collection.
+            </summary>
+            <param name="value">The RegistryValue to search for.</param>
+            <returns>An integer representing the index of the found RegistryValue, otherwise -1.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.Remove(System.Int32)">
+            <summary>
+            Removes the RegistryValue at index from the collection.
+            </summary>
+            <param name="index">The index of the RegistryValue to remove from the collection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.Remove(Sonneville.Registry.RegistryValue)">
+            <summary>
+            Removes a given RegistryValue from the collection.
+            </summary>
+            <param name="value">The RegistryValue to remove from the collection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.RemoveValue(System.String)">
+            <summary>
+            Removes the RegistryValue with a given name from the collection.
+            </summary>
+            <param name="name">The name of the RegistryValue to remove from the collection.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.ToArray">
+            <summary>
+            Gets an array of RegistryValues stored in this RegistryValueCollection.
+            </summary>
+            <returns>An array of RegistryValues stored in this RegistryValueCollection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.CopyTo(System.Array,System.Int32)">
+            <summary>
+            Copies the RegistryValues stored in this RegistryValueCollection to a given array, starting at index.
+            </summary>
+            <param name="array">The System.Array to copy elements to.</param>
+            <param name="index">The index at which to begin copying to.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.CopyTo(Sonneville.Registry.RegistryValue[],System.Int32)">
+            <summary>
+            Copies the RegistryValues stored in this RegistryValueCollection to a given array, starting at index.
+            </summary>
+            <param name="array">The array of RegistryValues to copy elements to.</param>
+            <param name="index">The index at which to begin copying to.</param>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.GetEnumerator">
+            <summary>
+            Gets an enumerator for the collection.
+            </summary>
+            <returns>A RegistryValueEnumerator usable to move through the collection.</returns>
+        </member>
+        <member name="M:Sonneville.Registry.RegistryValueCollection.ResizeArray(System.Int32)">
+            <summary>
+            Resizes the internal array to a given size.
+            </summary>
+            <param name="size">The size to restructure the internal array to.</param>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValueCollection.Item(System.Int32)">
+            <summary>
+            Gets the RegistryValue stored at a given index in the collection.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValueCollection.IsSynchronized">
+            <summary>
+            Returns if the current instance is synchronized (thread-safe).
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValueCollection.Count">
+            <summary>
+            Gets the number of RegistryValues stored in this RegistryValueCollection.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.RegistryValueCollection.SyncRoot">
+            <summary>
+            Gets an object used to synchronize access to the collection.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValueEnumerator">
+            <summary>
+            An enumerator used to iterate through a RegistryValueCollection.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.RegistryValueType">
+            <summary>
+            The type of RegistryValue.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.None">
+            <summary>
+            No specific value type.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.String">
+            <summary>
+            A string of characters.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.ExpandableString">
+            <summary>
+            A string containing a variable to be replaced when called by an applicaton.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.Binary">
+            <summary>
+            A value who's binary contents can be edited.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.Dword">
+            <summary>
+            A 32-bit (hexadecimal) number.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.DwordBigEndian">
+            <summary>
+            A 32-bit (hexadecimal) number in big-endian format.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.Link">
+            <summary>
+            Reserved for system use.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.MultiString">
+            <summary>
+            An array of string values.
+            </summary>
+        </member>
+        <member name="F:Sonneville.Registry.RegistryValueType.ResourceList">
+            <summary>
+            Reserved for operating system use.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.SubkeyAddedEventArgs">
+            <summary>
+            The EventArgs class for a subkey addition.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.SubkeyAddedEventArgs.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the SubkeyAddedEventArgs class
+            </summary>
+            <param name="name">The name of the new subkey.</param>
+        </member>
+        <member name="P:Sonneville.Registry.SubkeyAddedEventArgs.Name">
+            <summary>
+            Gets the name of the newly added subkey.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.ValueAddedEventArgs">
+            <summary>
+            The EventArgs class for a new RegistryValue.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.ValueAddedEventArgs.#ctor(System.String,Sonneville.Registry.RegistryValueType,System.Object)">
+            <summary>
+            Initializes a new instance of the ValueAddedEventArgs class.
+            </summary>
+            <param name="name">The name of the new RegistryValue.</param>
+            <param name="type">The RegistryValueType of the new RegistryValue.</param>
+            <param name="data">The data contained in the new RegistryValue.</param>
+        </member>
+        <member name="P:Sonneville.Registry.ValueAddedEventArgs.Name">
+            <summary>
+            Gets the name of the new RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.ValueAddedEventArgs.Type">
+            <summary>
+            Gets the type of the new RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.ValueAddedEventArgs.Value">
+            <summary>
+            Gets the data contained in the new RegistryValue.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.ValueDataChangedEventArgs">
+            <summary>
+            The EventArgs class for a RegistryValue data change.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.ValueDataChangedEventArgs.#ctor(System.Object,System.Object)">
+            <summary>
+            Initializes a new instance of the ValueDataChangedEventArgs class.
+            </summary>
+            <param name="oldData">The previous data contained in this RegistryValue.</param>
+            <param name="newData">The new data contained in this RegistryValue.</param>
+        </member>
+        <member name="P:Sonneville.Registry.ValueDataChangedEventArgs.OldData">
+            <summary>
+            Gets the previous data contained in this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.ValueDataChangedEventArgs.NewData">
+            <summary>
+            Gets the new data contained in this RegistryValue.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.ValueDeletedEventArgs">
+            <summary>
+            The EventArgs class for a RegistryValue deletion.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.ValueDeletedEventArgs.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the ValueDeletedEventArgs class.
+            </summary>
+            <param name="name">The name of the deleted RegistryValue.</param>
+            <param name="data">The object contained in the deleted RegistryValue.</param>
+        </member>
+        <member name="P:Sonneville.Registry.ValueDeletedEventArgs.Name">
+            <summary>
+            Gets the name of the deleted value.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.ValueDeletedEventArgs.Value">
+            <summary>
+            Gets the data of the deleted value.
+            </summary>
+        </member>
+        <member name="T:Sonneville.Registry.ValueNameChangedEventArgs">
+            <summary>
+            The EventArgs class for a RegsitryValue name change.
+            </summary>
+        </member>
+        <member name="M:Sonneville.Registry.ValueNameChangedEventArgs.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ValueNameChangedEventArgs class.
+            </summary>
+            <param name="oldName">The previous name of this RegistryValue.</param>
+            <param name="newName">The new name for this RegistryValue.</param>
+        </member>
+        <member name="P:Sonneville.Registry.ValueNameChangedEventArgs.OldName">
+            <summary>
+            Gets the previous name of this RegistryValue.
+            </summary>
+        </member>
+        <member name="P:Sonneville.Registry.ValueNameChangedEventArgs.NewName">
+            <summary>
+            Gets the new name for this RegistryValue.
+            </summary>
+        </member>
+    </members>
+</doc>
